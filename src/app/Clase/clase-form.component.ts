@@ -79,4 +79,17 @@ export class ClaseFormComponent implements OnInit {
     });
   }
 
+  compararDias(o1: String, o2: String): boolean {
+    if (o1 === undefined && o2 === undefined) {
+      return true;
+    }
+    return o1 === null || o2 === null || o1 === undefined || o2 === undefined ? false : o1 == o2;
+  }
+
+  compararHoras(h1: String, h2: String): boolean {
+    if (h1 === undefined && h2 === undefined) {
+      return true;
+    }
+    return h1 === null || h2 === null || h1 === undefined || h2 === undefined ? false : h1 == h2;
+  }
 }
