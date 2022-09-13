@@ -1,0 +1,44 @@
+<ul class="alert alert-danger" *ngIf="errores.length > 0">
+    <li *ngFor="let err of errores">
+      {{ err }}
+    </li>
+  </ul>
+  <div class="card bg-dark text-white my-2"   style="width: 50%; margin: auto auto;"> 
+     <div class="card-header">{{titulo}}</div>
+     <div class="card-body">
+      <form #clienteForm="ngForm">
+        <div class="form-group row">
+          <label for="nombreAsignatura" class="col-form-label colm-sm-2">Nombre de la aignatura</label>
+           <div class="col-sm-6">            
+               <input type="text" class="form-control" [(ngModel)]="clase.nombreAsignatura" id="nombreAsignatura" name="nombreAsignatura" style="display:inline; width:300px;" required>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="dia" class="col-form-label colm-sm-2">Día</label>
+             <div class="col-sm-6">            
+                <select name="miselect" [(ngModel)]="clase.dia">
+                    <option [value]="dia" *ngFor="let dia of semana">{{dia}}</option>
+                    </select>
+              </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="hor" class="col-form-label colm-sm-2">Hora</label>
+             <div class="col-sm-6">            
+                <select name="miselect" [(ngModel)]="clase.horaInicio">
+                    <option [value]="hora" *ngFor="let hora of horas">{{hora}}</option>
+                    </select>
+              </div>
+          </div>
+        
+        <div class="form-group my-3 row">
+          <div class="col-sm-6">
+            <button class="btn btn-primary " role="button" (click)='create()' [disabled]="!clienteForm.form.valid">Crear</button>
+            <button class="btn btn-danger m-2"  role="button" [routerLink]="['/clases/salon', salonId]">Cancelar</button>
+          </div>
+        </div>
+      </form>
+  
+     </div>  
+  </div>

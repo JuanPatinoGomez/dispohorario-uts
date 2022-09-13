@@ -1,0 +1,42 @@
+<div class="card border-primary mb3">
+    <button type="button" routerLink='/sedes' class="btn btn-success">volver</button> 
+    <div class="card-header">Clases</div>
+    <div class="card-body text-primary">
+       <h5 class="card-title">Listado de clases</h5>
+       <div class="my-2 text-left">
+         <button type="button" [routerLink]="['/clases/salon', salonId, 'form']" class="btn btn-success">Crear</button>       
+      </div>
+      <div *ngIf="clases?.length==0" class="alert alert-info">
+       No hay registros en la base de datos!
+      </div>
+      <table class="table table-border table-hover text-primary">
+        <thead>
+           <tr>
+              <th></th>
+              <th>#</th>
+              <th>Nombre asignatura</th>
+              <th>Día</th>
+              <th>Hora inicio</th>
+              <th>Hora finalización</th>
+              <th>Crear factura</th>
+              <th>Actualizar</th>
+              <th>Eliminar</th>
+           </tr>
+        </thead>
+        <tbody>      
+            <tr *ngFor="let clase of clases">
+            <td><button type="button" class="btn btn-info" >Ver</button></td>
+            <td>{{clase.id}}</td>
+            <td>{{clase.nombreAsignatura}}</td>
+            <td>{{clase.dia}}</td>
+            <td>{{clase.horaInicio}}</td>
+            <td>{{clase.horaFinalizacion}}</td>
+            <td><button type="button" class="btn btn-secondary"  >Crear factura</button></td>
+            <td><button type="button" class="btn btn-success" [routerLink]="['/clases/salon', clase.salon.id, 'form', clase.id]">Actualizar</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="delete(clase)">Elminar</button></td>
+           </tr>
+        </tbody>
+      </table>
+      
+    </div>
+    </div>

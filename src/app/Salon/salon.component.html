@@ -1,0 +1,39 @@
+<div class="card border-primary mb3">
+    <button type="button" routerLink='/sedes' class="btn btn-success">volver</button> 
+    <div class="card-header">Salones</div>
+    <div class="card-body text-primary">
+       <h5 class="card-title">Listado de salones</h5>
+       <div class="my-2 text-left">
+         <button type="button" [routerLink]="['/salones/edificio', edificioId, 'form']" class="btn btn-success">Crear</button>       
+      </div>
+      <div *ngIf="salones?.length==0" class="alert alert-info">
+       No hay registros en la base de datos!
+      </div>
+      <table class="table table-border table-hover text-primary">
+        <thead>
+           <tr>
+              <th></th>
+              <th>#</th>
+              <th>tipo</th>
+              <th>numero</th>
+              <th>Crear factura</th>
+              <th>Actualizar</th>
+              <th>Eliminar</th>
+           </tr>
+        </thead>
+        <tbody>      
+            <tr *ngFor="let salon of salones">
+            <td><button type="button" class="btn btn-info" >Ver</button></td>
+            <td>{{salon.id}}</td>
+            <td>{{salon.tipo}}</td>
+            <td>{{salon.numero}}</td>
+            <td><button type="button" class="btn btn-secondary"  >Crear factura</button></td>
+            <td><button type="button" class="btn btn-success" [routerLink]="['/salones/edificio', salon.edificio.id, 'form', salon.id]">Actualizar</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="delete(salon)">Elminar</button></td>
+            <td><button type="button" class="btn btn-secondary"  [routerLink]="['/clases/salon', salon.id]">Ver clases</button></td>
+           </tr>
+        </tbody>
+      </table>
+      
+    </div>
+    </div>

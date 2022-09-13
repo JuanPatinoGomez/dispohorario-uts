@@ -1,0 +1,38 @@
+<div class="card border-primary mb3">
+    <button type="button" routerLink='/sedes' class="btn btn-success">volver</button> 
+    <div class="card-header">Edificios</div>
+    <div class="card-body text-primary">
+       <h5 class="card-title">Listado de edificios</h5>
+       <div class="my-2 text-left">
+         <button type="button" [routerLink]="['/edificios/sede', sedeId, 'form']" class="btn btn-success">Crear</button>       
+      </div>
+      <div *ngIf="edificios?.length==0" class="alert alert-info">
+       No hay registros en la base de datos!
+      </div>
+      <table class="table table-border table-hover text-primary">
+        <thead>
+           <tr>
+              <th></th>
+              <th>#</th>
+              <th>nombre</th>
+              <th>Crear factura</th>
+              <th>Actualizar</th>
+              <th>Eliminar</th>
+           </tr>
+        </thead>
+        <tbody>      
+            <tr *ngFor="let edificio of edificios">
+            <td><button type="button" class="btn btn-info" >Ver</button></td>
+            <td>{{edificio.id}}</td>
+            <td>{{edificio.nombre}}</td>
+            <td><button type="button" class="btn btn-secondary"  >Crear factura</button></td>
+            <td><button type="button" class="btn btn-success" [routerLink]="['/edificios/sede', edificio.sede.id, 'form', edificio.id]">Actualizar</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="delete(edificio)">Elminar</button></td>
+            <td><button type="button" class="btn btn-secondary"  [routerLink]="['/salones/edificio', edificio.id]">Ver salones</button></td>
+           </tr>
+        </tbody>
+      </table>
+      
+    </div>
+    </div>
+    
