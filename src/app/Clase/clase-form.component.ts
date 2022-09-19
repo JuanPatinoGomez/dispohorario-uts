@@ -85,7 +85,7 @@ export class ClaseFormComponent implements OnInit {
     }
     return o1 === null || o2 === null || o1 === undefined || o2 === undefined ? false : o1 == o2;
   }
-
+  
   compararHoras(h1: String, h2: String): boolean {
     if (h1 === undefined && h2 === undefined) {
       return true;

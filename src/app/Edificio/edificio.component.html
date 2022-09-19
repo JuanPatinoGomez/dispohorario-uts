@@ -12,20 +12,17 @@
       <table class="table table-border table-hover text-primary">
         <thead>
            <tr>
-              <th></th>
               <th>#</th>
               <th>nombre</th>
-              <th>Crear factura</th>
               <th>Actualizar</th>
               <th>Eliminar</th>
+              <th>Ver salones</th>
            </tr>
         </thead>
         <tbody>      
             <tr *ngFor="let edificio of edificios">
-            <td><button type="button" class="btn btn-info" >Ver</button></td>
             <td>{{edificio.id}}</td>
             <td>{{edificio.nombre}}</td>
-            <td><button type="button" class="btn btn-secondary"  >Crear factura</button></td>
             <td><button type="button" class="btn btn-success" [routerLink]="['/edificios/sede', edificio.sede.id, 'form', edificio.id]">Actualizar</button></td>
             <td><button type="button" class="btn btn-danger" (click)="delete(edificio)">Elminar</button></td>
             <td><button type="button" class="btn btn-secondary"  [routerLink]="['/salones/edificio', edificio.id]">Ver salones</button></td>
