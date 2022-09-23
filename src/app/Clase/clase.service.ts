@@ -81,4 +81,16 @@ export class ClaseService {
         })
       );
     }
+
+    getHorasDispo(id:number, dia:string): Observable<string[]>{
+      return this.http.get<string[]>(`${this.urlApi}/clases/horasOcupadas/salon/${id}/dia/${dia}`).pipe(
+        catchError(e=>{
+          if(e.status!=401 && e.erro.mensaje){
+            this.router.navigate(['/sedes']);
+            console.log(e.error.mensaje);
+          }
+          return throwError(()=>e);
+        })
+      );;
+    }
 }

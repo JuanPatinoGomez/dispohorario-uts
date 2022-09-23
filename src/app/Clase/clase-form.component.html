@@ -20,7 +20,7 @@
                 <!--<select name="miselect" [(ngModel)]="clase.dia" [compareWith]="compararDias">
                     <option [value]="dia" *ngFor="let dia of semana">{{dia}}</option>
                     </select> -->
-                    <select [compareWith]="compararDias" class="form-control" [(ngModel)]="clase.dia" name="dia" style="width: 300px;">
+                    <select [compareWith]="compararDias" class="form-control" [(ngModel)]="clase.dia" name="dia" style="width: 300px;" (change)="onChange($event.target)" required>
                       <option [ngValue]="undefined">---Seleccionar un día----</option>
                       <option *ngFor="let dia of semana" [ngValue]="dia">{{dia}}</option>              
                     </select>
@@ -33,7 +33,7 @@
                 <!--<select name="miselect" [(ngModel)]="clase.horaInicio">
                     <option [value]="hora" *ngFor="let hora of horas">{{hora}}</option>
                     </select>-->
-                    <select [compareWith]="compararHoras" class="form-control" [(ngModel)]="clase.horaInicio" name="hora" style="width: 300px;">
+                    <select id="selectHoras" [compareWith]="compararHoras" class="form-control" [(ngModel)]="clase.horaInicio" name="hora" style="width: 300px;" required>
                       <option [ngValue]="undefined">---Seleccionar una hora----</option>
                       <option *ngFor="let hora of horas" [ngValue]="hora">{{hora}}</option>              
                     </select>
