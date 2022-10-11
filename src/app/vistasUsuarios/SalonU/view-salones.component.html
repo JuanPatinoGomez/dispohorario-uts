@@ -1,0 +1,18 @@
+<table class="table table-border table-hover text-primary">
+    <thead>
+       <tr>
+          <th>#</th>
+          <th>tipo</th>
+          <th>numero</th>
+          <th>Ver clases</th>
+       </tr>
+    </thead>
+    <tbody>      
+        <tr *ngFor="let salon of salones">
+        <td>{{salon.id}}</td>
+        <td>{{salon.tipo}}</td>
+        <td>{{salon.numero}}</td>
+        <td><button type="button" class="btn btn-secondary"  [routerLink]="['/view/clases/salon', salon.id]">Ver clases</button></td>
+       </tr>
+    </tbody>
+  </table>

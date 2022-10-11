@@ -14,6 +14,10 @@ import { SalonComponent } from './Salon/salon.component';
 import { FromComponent } from './Salon/from.component';
 import { ClaseComponent } from './Clase/clase.component';
 import { ClaseFormComponent } from './Clase/clase-form.component';
+import { ViewSedeComponent } from './vistasUsuarios/SedeU/view-sede.component';
+import { ViewEdificiosComponent } from './vistasUsuarios/EdificiosU/view-edificios.component';
+import { ViewSalonesComponent } from './vistasUsuarios/SalonU/view-salones.component';
+import { ViewClasesComponent } from './vistasUsuarios/ClaseU/view-clases.component';
 
 
 @NgModule({
@@ -27,7 +31,11 @@ import { ClaseFormComponent } from './Clase/clase-form.component';
     SalonComponent,
     FromComponent,
     ClaseComponent,
-    ClaseFormComponent
+    ClaseFormComponent,
+    ViewSedeComponent,
+    ViewEdificiosComponent,
+    ViewSalonesComponent,
+    ViewClasesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ClaseService } from "./clase.service";
-import { Clase } from "./clase";
+import { ClaseService } from "../../Clase/clase.service";
+import { Clase } from "../../Clase/clase";
 
 import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
-  selector: 'app-clase',
-  templateUrl: './clase.component.html',
-  styleUrls: ['./clase.component.css']
+  selector: 'app-view-clases',
+  templateUrl: './view-clases.component.html',
+  styleUrls: ['./view-clases.component.css']
 })
-export class ClaseComponent implements OnInit {
+export class ViewClasesComponent implements OnInit {
 
   title = 'Clase';
   clases: Clase[]=[];
@@ -35,12 +35,5 @@ export class ClaseComponent implements OnInit {
     })
   }
 
-delete(clase: Clase): void{
-  this.claseService.delete(clase).subscribe({
-    next: () => {
-      this.clases = this.clases.filter(cla => cla != clase)
-    }
-  });
-}
 
 }

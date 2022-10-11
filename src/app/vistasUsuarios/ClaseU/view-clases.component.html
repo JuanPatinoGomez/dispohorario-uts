@@ -1,0 +1,20 @@
+<table class="table table-border table-hover text-primary">
+    <thead>
+       <tr>
+          <th>#</th>
+          <th>Nombre asignatura</th>
+          <th>Día</th>
+          <th>Hora inicio</th>
+          <th>Hora finalización</th>
+       </tr>
+    </thead>
+    <tbody>      
+        <tr *ngFor="let clase of clases">
+        <td>{{clase.id}}</td>
+        <td>{{clase.nombreAsignatura}}</td>
+        <td>{{clase.dia}}</td>
+        <td>{{clase.horaInicio}}</td>
+        <td>{{clase.horaFinalizacion}}</td>
+       </tr>
+    </tbody>
+  </table>

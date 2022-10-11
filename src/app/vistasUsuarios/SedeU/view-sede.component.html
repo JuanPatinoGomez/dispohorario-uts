@@ -1,0 +1,17 @@
+<table class="table table-border table-hover text-primary">
+    <thead>
+       <tr>
+          <th>#</th>
+          <th>Municipio</th>
+          <th>Dirección</th>
+       </tr>
+    </thead>
+    <tbody>      
+        <tr *ngFor="let sede of sedes">
+        <td>{{sede.id}}</td>
+        <td>{{sede.municipio}}</td>
+        <td>{{sede.direccion}}</td>
+        <td><button type="button" class="btn btn-secondary"  [routerLink]="['/view/edificios/sede', sede.id]">Ver edificios</button></td>
+       </tr>
+    </tbody>
+  </table>

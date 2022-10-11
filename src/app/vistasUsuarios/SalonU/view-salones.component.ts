@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Salon } from "./salon";
-import { SalonService } from "./salon.service";
+import { Salon } from "../../Salon/salon";
+import { SalonService } from "../../Salon/salon.service";
 
 import { Router, ActivatedRoute } from "@angular/router";
 
+
 @Component({
-  selector: 'app-salon',
-  templateUrl: './salon.component.html',
-  styleUrls: ['./salon.component.css']
+  selector: 'app-view-salones',
+  templateUrl: './view-salones.component.html',
+  styleUrls: ['./view-salones.component.css']
 })
-export class SalonComponent implements OnInit {
+export class ViewSalonesComponent implements OnInit {
 
   title = 'Salon';
   salones: Salon[]=[];
@@ -34,13 +35,5 @@ export class SalonComponent implements OnInit {
       }
     })
   }
-
-delete(salon: Salon): void{
-  this.salonService.delete(salon).subscribe({
-    next: () => {
-      this.salones = this.salones.filter(edi => edi != salon)
-    }
-  });
-}
 
 }
