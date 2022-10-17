@@ -18,6 +18,7 @@ import { ViewSedeComponent } from './vistasUsuarios/SedeU/view-sede.component';
 import { ViewEdificiosComponent } from './vistasUsuarios/EdificiosU/view-edificios.component';
 import { ViewSalonesComponent } from './vistasUsuarios/SalonU/view-salones.component';
 import { ViewClasesComponent } from './vistasUsuarios/ClaseU/view-clases.component';
+import { ModuloqrComponent } from './moduloqr/moduloqr.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ViewClasesComponent } from './vistasUsuarios/ClaseU/view-clases.compone
     ViewSedeComponent,
     ViewEdificiosComponent,
     ViewSalonesComponent,
-    ViewClasesComponent
+    ViewClasesComponent,
+    ModuloqrComponent
   ],
   imports: [
     BrowserModule,

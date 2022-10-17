@@ -1,0 +1,68 @@
+
+<br><br><br>
+<div class="container-fluid">
+    <h1 class="navbar-brand mb-0 h1">Generar codigos qr</h1>
+</div>
+<br><br>
+
+<!-- Acordion de las sedes -->
+<div class="accordion" id="accordionExample">
+
+
+  <div class="accordion-item" *ngFor="let sede of sedes">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button " type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse-sede'+sede.id" aria-expanded="true" aria-controls="collapseOne" (click)="traerEdificios(sede)">
+        Sede {{sede.municipio}}
+      </button>
+    </h2>
+    <div id="{{'collapse-sede' + sede.id}}" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary" type="button" (click)="qrSede(sede)" data-bs-toggle="modal" data-bs-target="#exampleModal">Generar todos los codigos qr de la sede</button>
+        </div>
+        <br>
+        <!-- Acordión de los edificios -->
+        <div class="accordion" id="{{'accordionExample2' + sede.id}}">
+
+
+          <div class="accordion-item" *ngFor="let edificio of edificios">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button " type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse-edificio'+edificio.id" aria-expanded="true" aria-controls="collapseOne" (click)="traerSalones(edificio)">
+                Edificio {{edificio.nombre}}
+              </button>
+            </h2>
+            <div id="{{'collapse-edificio' + edificio.id}}" class="accordion-collapse collapse " aria-labelledby="headingOne" [attr.data-bs-parent]="'#accordionExample2'+sede.id">
+              <div class="accordion-body">
+                <div class="d-grid gap-2">
+                  <button class="btn btn-primary" type="button" (click)="qrEdificio(edificio)" data-bs-toggle="modal" data-bs-target="#exampleModal">Generar todos los codigos qr del edificio</button>
+                </div>
+                <br>
+                <button type="button" class="btn btn-secondary" *ngFor="let salon of salones" (click)="qrSalon(salon)" style="margin-left: 10px; margin-bottom: 10px;" data-bs-toggle="modal" data-bs-target="#exampleModal">{{salon.tipo}}-{{salon.numero}}</button> 
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Mensaje</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{mensaje}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

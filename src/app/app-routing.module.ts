@@ -4,6 +4,7 @@ import { ClaseFormComponent } from './Clase/clase-form.component';
 import { ClaseComponent } from './Clase/clase.component';
 import { EdificioComponent } from './Edificio/edificio.component';
 import { FormEdificioComponent } from './Edificio/form-edificio.component';
+import { ModuloqrComponent } from './moduloqr/moduloqr.component';
 import { FromComponent } from './Salon/from.component';
 import { SalonComponent } from './Salon/salon.component';
 import { FormComponent } from './Sede/form.component';
@@ -30,7 +31,9 @@ const routes: Routes = [
   { path: 'view/sedes', component: ViewSedeComponent},
   { path: 'view/edificios/sede/:id', component: ViewEdificiosComponent},
   { path: 'view/salones/edificio/:id', component: ViewSalonesComponent},
-  { path: 'view/clases/salon/:id', component: ViewClasesComponent}
+  { path: 'view/clases/salon/:id', component: ViewClasesComponent},
+  //modulo qr
+  { path: 'moduloqr', component: ModuloqrComponent}
 ];
 
 @NgModule({
