@@ -29,4 +29,7 @@ export class ModqrService {
     return this.http.get<string>(`${this.urlApi}/salon/${id}`);
   }
 
+  qrApp(): Observable<string>{
+    return this.http.get<string>(`${this.urlApi}/app`);
+  }
 }

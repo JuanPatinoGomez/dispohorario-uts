@@ -52,6 +52,7 @@ export class ModuloqrComponent implements OnInit {
   //Servicios que generan los codigos qr
 
   qrSede(sede: Sede): void{
+    this.mensaje = '';
     this.modqrService.qrSede(sede.id).subscribe(response =>{
       this.mensaje = response['mensaje'];
       console.log(response)
@@ -59,6 +60,7 @@ export class ModuloqrComponent implements OnInit {
   }
 
   qrEdificio(edificio: Edificio): void{
+    this.mensaje = '';
     this.modqrService.qrEdificio(edificio.id).subscribe(response =>{
       this.mensaje = response['mensaje'];
       console.log(response)
@@ -66,7 +68,16 @@ export class ModuloqrComponent implements OnInit {
   }
 
   qrSalon(salon: Salon): void{
+    this.mensaje = '';
     this.modqrService.qrSalon(salon.id).subscribe(response =>{
+      this.mensaje = response['mensaje'];
+      console.log(response)
+    });
+  }
+
+  qrApp(): void{
+    this.mensaje = '';
+    this.modqrService.qrApp().subscribe(response =>{
       this.mensaje = response['mensaje'];
       console.log(response)
     });
@@ -74,6 +85,6 @@ export class ModuloqrComponent implements OnInit {
 
   detectFiles(event){
     console.log(event.currentTarget.files[0].webkitRelativePath);
-}
+  }
 
 }

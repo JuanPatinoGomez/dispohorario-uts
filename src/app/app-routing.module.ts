@@ -33,7 +33,8 @@ const routes: Routes = [
   { path: 'view/salones/edificio/:id', component: ViewSalonesComponent},
   { path: 'view/clases/salon/:id', component: ViewClasesComponent},
   //modulo qr
-  { path: 'moduloqr', component: ModuloqrComponent}
+  { path: 'moduloqr', component: ModuloqrComponent},
+  { path: '', component: ModuloqrComponent}
 ];
 
 @NgModule({
