@@ -1,15 +1,16 @@
+<br><br><br>
 <div class="card border-primary mb3">
     <button type="button" routerLink='/sedes' class="btn btn-success">volver</button> 
-    <div class="card-header">Salones</div>
+    <div class="card-header">Administración salones</div>
     <div class="card-body text-primary">
-       <h5 class="card-title">Listado de salones</h5>
+       
        <div class="my-2 text-left">
-         <button type="button" [routerLink]="['/salones/edificio', edificioId, 'form']" class="btn btn-success">Crear</button>       
+         <button type="button" [routerLink]="['/salones/edificio', edificioId, 'form']" class="btn btn-success">Nuevo salon</button>       
       </div>
       <div *ngIf="salones?.length==0" class="alert alert-info">
        No hay registros en la base de datos!
       </div>
-      <table class="table table-border table-hover text-primary">
+      <table class="table table-border table-hover text-dark">
         <thead>
            <tr>
               <th>#</th>

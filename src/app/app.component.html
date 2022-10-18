@@ -1,4 +1,13 @@
-<app-header></app-header>
-<div class="container">
- <router-outlet></router-outlet>
+<nav class="navbar bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="https://lh3.googleusercontent.com/-0bDStAA7YSs/AAAAAAAAAAI/AAAAAAAAAAA/TFWPvymyaA0/s55-p-k-no-ns-nd/photo.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+        &nbsp; &nbsp;&nbsp; {{titlenav}}
+      </a>
+    </div>
+</nav>
+<div class="fondo">
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
 </div>

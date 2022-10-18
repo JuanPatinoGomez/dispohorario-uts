@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'dispohorario-uts';
+  titlenav = 'Dipohorario-uts'
 }
