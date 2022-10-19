@@ -1,17 +1,38 @@
-<table class="table table-border table-hover text-primary">
-    <thead>
-       <tr>
-          <th>#</th>
-          <th>Municipio</th>
-          <th>Dirección</th>
-       </tr>
-    </thead>
-    <tbody>      
-        <tr *ngFor="let sede of sedes">
-        <td>{{sede.id}}</td>
-        <td>{{sede.municipio}}</td>
-        <td>{{sede.direccion}}</td>
-        <td><button type="button" class="btn btn-secondary"  [routerLink]="['/view/edificios/sede', sede.id]">Ver edificios</button></td>
-       </tr>
-    </tbody>
-  </table>
+<br><br><br>
+<div class="card-header bg-dark text-center h1 text-white">Sedes</div>
+<div class="card mb3 bg-light bg-opacity-10">
+   <br><br>
+   <!-- <table class="table table-border table-hover text-primary">
+       <thead>
+          <tr>
+             <th>#</th>
+             <th>Municipio</th>
+             <th>Dirección</th>
+          </tr>
+       </thead>
+       <tbody>      
+           <tr *ngFor="let sede of sedes">
+           <td>{{sede.id}}</td>
+           <td>{{sede.municipio}}</td>
+           <td>{{sede.direccion}}</td>
+           <td><button type="button" class="btn btn-secondary"  [routerLink]="['/view/edificios/sede', sede.id]">Ver edificios</button></td>
+          </tr>
+       </tbody>
+     </table> -->
+   
+
+   <div class="container d-flex justify-content-start flex-wrap bg-transparent " id="contenedorSedes">
+
+      <div class="card" style="width: 18rem; margin: 10px; cursor: pointer;" *ngFor="let sede of sedes" [routerLink]="['/view/edificios/sede', sede.id]">
+         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXbuOMtinZVqvudtDr9LYTpjpTBJ7EYEhPmQ&usqp=CAU" class="card-img-top" alt="...">
+         <div class="card-body bg-success bg-opacity-10">
+           <h5 class="card-title">{{sede.municipio}}</h5>
+           <p class="card-text">{{sede.direccion}}.</p>
+         </div>
+      </div>
+
+   </div>
+
+     <br><br>
+   
+</div>

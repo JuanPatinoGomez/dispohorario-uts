@@ -1,4 +1,4 @@
-<table class="table table-border table-hover text-primary">
+<!-- <table class="table table-border table-hover text-primary">
     <thead>
        <tr>
           <th>#</th>
@@ -15,4 +15,29 @@
         <td><button type="button" class="btn btn-secondary"  [routerLink]="['/view/clases/salon', salon.id]">Ver clases</button></td>
        </tr>
     </tbody>
-  </table>
+  </table> -->
+
+<br><br><br>
+<div class="d-grid gap-2">
+   <button class="btn btn-success " type="button"  routerLink='/view/sedes'>Volver</button>
+ </div>
+ <br>
+<div class="card-header bg-dark text-center h1 text-white">Salones</div>
+<div class="card mb3 bg-light bg-opacity-10">
+   <br><br>
+   
+   <div class="container d-flex justify-content-center flex-wrap bg-transparent " id="contenedorSedes">
+
+      <div class="card" style="width: 18rem; margin: 10px; cursor: pointer;" *ngFor="let salon of salones" [routerLink]="['/view/clases/salon', salon.id]">
+         <img src="https://colombiaestudia.com/wp-content/uploads/2021/06/estudio-uts.jpg" class="card-img-top" alt="...">
+         <div class="card-body bg-success bg-opacity-10">
+           <h5 class="card-title">Salon {{salon.numero}}</h5>
+           <p class="card-text">{{salon.tipo}}</p>
+         </div>
+      </div>
+
+   </div>
+
+     <br><br>
+   
+</div>

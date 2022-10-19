@@ -15,12 +15,22 @@ export class ViewClasesComponent implements OnInit {
   clases: Clase[]=[];
   salonId: number=0;
 
+  clasesLunes: Clase[]=[];
+  clasesMartes: Clase[]=[];
+  clasesMiercoles: Clase[]=[];
+  clasesJueves: Clase[]=[];
+  clasesViernes: Clase[]=[];
+  clasesSabado: Clase[]=[];
+
+
   constructor(private claseService: ClaseService,
     private router: Router,
     private activatedRouter: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getClasesSalon();
+    this.getClasesSalonSort();
+    this.llenarClasesDias();
   }
 
   getClasesSalon(): void{
@@ -35,5 +45,28 @@ export class ViewClasesComponent implements OnInit {
     })
   }
 
+  getClasesSalonSort(): void{
+    this.activatedRouter.paramMap.subscribe(params=>{
+      let id = params.get('id');
+      if(id){
+        this.claseService.getClasesSalonSort(Number(id)).subscribe(clases=>{
+          this.clases=clases
+          this.salonId = Number(id);
+          this.clasesLunes = this.clases.filter(x => x['dia'] === "Lunes");
+          this.clasesMartes = this.clases.filter(x => x['dia'] === "Martes");
+          this.clasesMiercoles = this.clases.filter(x => x['dia'] === "Miercoles");
+          this.clasesJueves = this.clases.filter(x => x['dia'] === "Jueves");
+          this.clasesViernes = this.clases.filter(x => x['dia'] === "Viernes");
+          this.clasesSabado = this.clases.filter(x => x['dia'] === "Sabado");
+        })
+      }
+    })
+  }
+
+  llenarClasesDias(){
+    console.log(this.clases)
+    this.clasesLunes = this.clases.filter(x => x['dia'] === "Lunes");
+    console.log(this.clasesLunes)
+  }
 
 }

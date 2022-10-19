@@ -1,0 +1,9 @@
+
+
+@media (max-width: 600px) {
+    #contenedorSedes{
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+}
