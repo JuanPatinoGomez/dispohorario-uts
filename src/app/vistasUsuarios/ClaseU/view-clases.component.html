@@ -42,8 +42,8 @@
           <div class="accordion-body">
 
             <div class="row d-flex justify-content-center  " *ngFor="let claseLunes of clasesLunes">
-              <div class="col-3 bg-light p-3 border">{{claseLunes.horaInicio}}  - {{claseLunes.horaFinalizacion}}</div>
-              <div class="col-sm-8 bg-light p-3 border">{{claseLunes.nombreAsignatura}}</div>
+              <div class="col-4 bg-light p-3 border">{{claseLunes.horaInicio}}  - {{claseLunes.horaFinalizacion}}</div>
+              <div class="col-7 bg-light p-3 border">{{claseLunes.nombreAsignatura}}</div>
             </div>
 
             <div *ngIf="clasesLunes?.length==0" class="alert alert-info">
@@ -61,11 +61,10 @@
         </h2>
         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            <div *ngFor="let claseMartes of clasesMartes">{{claseMartes.horaInicio}}  - {{claseMartes.horaFinalizacion}} | {{claseMartes.nombreAsignatura}}</div>
             
             <div class="row d-flex justify-content-center  " *ngFor="let claseMartes of clasesMartes" style="margin: 5px;">
-              <div class="col-3 bg-light p-3 border">{{claseMartes.horaInicio}}  - {{claseMartes.horaFinalizacion}}</div>
-              <div class="col-sm-8 bg-light p-3 border">{{claseMartes.nombreAsignatura}}</div>
+              <div class="col-4 bg-light p-3 border">{{claseMartes.horaInicio}}  - {{claseMartes.horaFinalizacion}}</div>
+              <div class="col-7 bg-light p-3 border">{{claseMartes.nombreAsignatura}}</div>
             </div>
 
             <div *ngIf="clasesMartes?.length==0" class="alert alert-info">
@@ -86,8 +85,8 @@
           <div class="accordion-body">
 
             <div class="row d-flex justify-content-center  " *ngFor="let claseMiercoles of clasesMiercoles" style="margin: 5px;">
-              <div class="col-3 bg-light  p-3 border">{{claseMiercoles.horaInicio}}  - {{claseMiercoles.horaFinalizacion}}</div>
-              <div class="col-sm-8 bg-light p-3 border">{{claseMiercoles.nombreAsignatura}}</div>
+              <div class="col-4 bg-light  p-3 border">{{claseMiercoles.horaInicio}}  - {{claseMiercoles.horaFinalizacion}}</div>
+              <div class="col-7 bg-light p-3 border">{{claseMiercoles.nombreAsignatura}}</div>
             </div>
             
             <div *ngIf="clasesMiercoles?.length==0" class="alert alert-info">
@@ -107,8 +106,8 @@
            <div class="accordion-body">
 
              <div class="row d-flex justify-content-center  " *ngFor="let claseJueves of clasesJueves" style="margin: 5px;">
-              <div class="col-3 bg-light p-3 border">{{claseJueves.horaInicio}}  - {{claseJueves.horaFinalizacion}}</div>
-              <div class="col-sm-8 bg-light p-3 border">{{claseJueves.nombreAsignatura}}</div>
+              <div class="col-4 bg-light p-3 border">{{claseJueves.horaInicio}}  - {{claseJueves.horaFinalizacion}}</div>
+              <div class="col-7 bg-light p-3 border">{{claseJueves.nombreAsignatura}}</div>
             </div>
 
              <div *ngIf="clasesJueves?.length==0" class="alert alert-info">
@@ -127,8 +126,8 @@
          <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
            <div class="accordion-body">
             <div class="row d-flex justify-content-center  " *ngFor="let claseViernes of clasesViernes" style="margin: 5px;">
-              <div class="col-3 bg-light p-3 border">{{claseViernes.horaInicio}}  - {{claseViernes.horaFinalizacion}}</div>
-              <div class="col-sm-8 bg-light p-3 border">{{claseViernes.nombreAsignatura}}</div>
+              <div class="col-4 bg-light p-3 border">{{claseViernes.horaInicio}}  - {{claseViernes.horaFinalizacion}}</div>
+              <div class="col-7 bg-light p-3 border">{{claseViernes.nombreAsignatura}}</div>
             </div>
              <div *ngIf="clasesViernes?.length==0" class="alert alert-info">
               No hay clases registradas en la base de datos!
@@ -147,8 +146,8 @@
            <div class="accordion-body">
 
              <div class="row d-flex justify-content-center " *ngFor="let claseSabado of clasesSabado" style="margin: 5px;">
-              <div class="col-3 bg-light  p-3 border">{{claseSabado.horaInicio}}  - {{claseSabado.horaFinalizacion}}</div>
-              <div class="col-sm-8 bg-light p-3 border">{{claseSabado.nombreAsignatura}}</div>
+              <div class="col-4 bg-light  p-3 border">{{claseSabado.horaInicio}}  - {{claseSabado.horaFinalizacion}}</div>
+              <div class="col-7 bg-light p-3 border">{{claseSabado.nombreAsignatura}}</div>
             </div>
 
              <div *ngIf="clasesSabado?.length==0" class="alert alert-info">
