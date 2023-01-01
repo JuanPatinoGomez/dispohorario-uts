@@ -25,7 +25,7 @@
             <td>{{edificio.id}}</td>
             <td>{{edificio.nombre}}</td>
             <td><button type="button" class="btn btn-success" [routerLink]="['/admin/edificios/sede', edificio.sede.id, 'form', edificio.id]">Actualizar</button></td>
-            <td><button type="button" class="btn btn-danger" (click)="delete(edificio)">Elminar</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="delete(edificio)">Eliminar</button></td>
             <td><button type="button" class="btn btn-secondary"  [routerLink]="['/admin/salones/edificio', edificio.id]">Ver salones</button></td>
            </tr>
         </tbody>

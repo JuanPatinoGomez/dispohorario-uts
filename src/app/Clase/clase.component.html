@@ -29,7 +29,7 @@
             <td>{{clase.horaInicio}}</td>
             <td>{{clase.horaFinalizacion}}</td>
             <td><button type="button" class="btn btn-success" [routerLink]="['/admin/clases/salon', clase.salon.id, 'form', clase.id]">Actualizar</button></td>
-            <td><button type="button" class="btn btn-danger" (click)="delete(clase)">Elminar</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="delete(clase)">Eliminar</button></td>
            </tr>
         </tbody>
       </table>

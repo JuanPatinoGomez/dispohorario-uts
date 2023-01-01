@@ -27,7 +27,7 @@
             <td>{{salon.tipo}}</td>
             <td>{{salon.numero}}</td>
             <td><button type="button" class="btn btn-success" [routerLink]="['/admin/salones/edificio', salon.edificio.id, 'form', salon.id]">Actualizar</button></td>
-            <td><button type="button" class="btn btn-danger" (click)="delete(salon)">Elminar</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="delete(salon)">Eliminar</button></td>
             <td><button type="button" class="btn btn-secondary"  [routerLink]="['/admin/clases/salon', salon.id]">Ver clases</button></td>
            </tr>
         </tbody>
