@@ -19,6 +19,9 @@ import { ViewEdificiosComponent } from './vistasUsuarios/EdificiosU/view-edifici
 import { ViewSalonesComponent } from './vistasUsuarios/SalonU/view-salones.component';
 import { ViewClasesComponent } from './vistasUsuarios/ClaseU/view-clases.component';
 import { ModuloqrComponent } from './moduloqr/moduloqr.component';
+import { UsuarioComponent } from './manejoUsuario/Usuario/usuario.component';
+import { FormUsuariosComponent } from './manejoUsuario/Usuario/form-usuarios.component';
+import { LoginComponent } from './manejoUsuario/login/login.component';
 
 
 @NgModule({
@@ -37,7 +40,10 @@ import { ModuloqrComponent } from './moduloqr/moduloqr.component';
     ViewEdificiosComponent,
     ViewSalonesComponent,
     ViewClasesComponent,
-    ModuloqrComponent
+    ModuloqrComponent,
+    UsuarioComponent,
+    FormUsuariosComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

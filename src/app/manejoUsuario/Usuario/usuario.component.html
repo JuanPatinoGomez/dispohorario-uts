@@ -1,0 +1,35 @@
+<br><br><br>
+<div class="card border-primary mb3">
+    <div class="card-header">Administración Usuarios</div>
+    <div class="card-body text-primary">
+       <div class="my-2 text-left">
+         <button type="button" routerLink='/usuarios/form' class="btn btn-success">Nuevo usuario</button>       
+      </div>
+      <div *ngIf="usuarios?.length==0" class="alert alert-info">
+       No hay registros en la base de datos!
+      </div>
+      <table class="table  table-border table-hover text-dark">
+        <thead>
+           <tr>
+              <th>#</th>
+              <th>usuario</th>
+              <th>habilitado</th>
+              <th>Accion</th>
+              <th>Eliminar</th>
+           </tr>
+        </thead>
+        <tbody>      
+            <tr *ngFor="let usuario of usuarios">
+            <td>{{usuario.id}}</td>
+            <td>{{usuario.usuario}}</td>
+            <td>{{usuario.habilitado}}</td>
+            <td><button type="button" class="btn btn-success" (click)="cambiarEstado(usuario)">Habilitar/Deshabilitar</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="delete(usuario)">Eliminar</button></td>
+           </tr>
+        </tbody>
+      </table>
+      
+    </div>
+    </div>
+    
+

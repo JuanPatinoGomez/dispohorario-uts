@@ -1,0 +1,38 @@
+<br><br>
+<ul class="alert alert-danger" *ngIf="errores.length > 0">
+    <li *ngFor="let err of errores">
+      {{ err }}
+    </li>
+  </ul>
+  <div class="card bg-dark text-white my-2"   style="width: 35%; margin: auto auto;"> 
+     <div class="card-header">{{titulo}}</div>
+     <div class="card-body">
+      <form #clienteForm="ngForm">
+        <div class="form-group row">
+          <label for="nombre" class="col-form-label colm-sm-2">Usuario</label>
+           <div class="col-sm-6">            
+               <input type="text" class="form-control" [(ngModel)]="usuarioForm.usuario" id="usuario" name="usuario" style="display:inline; width:300px;" required>
+            </div>
+        </div>
+        <div class="form-group row">
+          <label for="apellido" class="col-form-label colm-sm-2">Contraseña</label>
+           <div class="col-sm-6"> 
+             <input type="password" class="form-control" [(ngModel)]="usuarioForm.contrasena" name="contrasena" style="display:inline; width:300px;" required>            
+           </div>
+        </div>     
+       
+        
+        <div class="form-group my-3 row">
+          <div class="col-sm-6">
+            <button class="btn btn-primary " role="button" (click)='create()' [disabled]="!clienteForm.form.valid">Crear</button>
+            <button class="btn btn-danger m-2"  role="button" routerLink='/usuarios'>Cancelar</button>
+          </div>
+        </div>
+      </form>
+  
+     </div>  
+  </div>
+  
+
+  
+
