@@ -1,11 +1,11 @@
 <br><br><br>
 <div class="card border-primary mb3" style="border-width: 0px;">
-    <button type="button" routerLink='/sedes' class="btn btn-success">volver</button> 
+    <button type="button" routerLink='/admin/sedes' class="btn btn-success">volver</button> 
 
     <div class="card-header">Administración edificios</div>
     <div class="card-body text-primary">
        <div class="my-2 text-left">
-         <button type="button" [routerLink]="['/edificios/sede', sedeId, 'form']" class="btn btn-success">Nuevo edificio</button>       
+         <button type="button" [routerLink]="['/admin/edificios/sede', sedeId, 'form']" class="btn btn-success">Nuevo edificio</button>       
       </div>
       <div *ngIf="edificios?.length==0" class="alert alert-info">
        No hay registros en la base de datos!
@@ -24,9 +24,9 @@
             <tr *ngFor="let edificio of edificios">
             <td>{{edificio.id}}</td>
             <td>{{edificio.nombre}}</td>
-            <td><button type="button" class="btn btn-success" [routerLink]="['/edificios/sede', edificio.sede.id, 'form', edificio.id]">Actualizar</button></td>
+            <td><button type="button" class="btn btn-success" [routerLink]="['/admin/edificios/sede', edificio.sede.id, 'form', edificio.id]">Actualizar</button></td>
             <td><button type="button" class="btn btn-danger" (click)="delete(edificio)">Elminar</button></td>
-            <td><button type="button" class="btn btn-secondary"  [routerLink]="['/salones/edificio', edificio.id]">Ver salones</button></td>
+            <td><button type="button" class="btn btn-secondary"  [routerLink]="['/admin/salones/edificio', edificio.id]">Ver salones</button></td>
            </tr>
         </tbody>
       </table>

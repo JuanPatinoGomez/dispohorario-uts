@@ -49,7 +49,7 @@ export class FormEdificioComponent implements OnInit {
     this.edificio.sede =this.sede;
     this.edificioService.create(this.edificio).subscribe({
       next: (edificio: Edificio)=>{
-        this.router.navigate([`/edificios/sede/${edificio.sede.id}`]);
+        this.router.navigate([`/admin/edificios/sede/${edificio.sede.id}`]);
       },
       error: (err)=>{
         this.errores = err.error.errors as string[];
@@ -62,7 +62,7 @@ export class FormEdificioComponent implements OnInit {
   update(): void{
     this.edificioService.update(this.edificio).subscribe({
       next:(edificio)=>{
-        this.router.navigate([`/edificios/sede/${edificio.sede.id}`]);
+        this.router.navigate([`/admin/edificios/sede/${edificio.sede.id}`]);
       },
       error:(err)=>{
         this.errores= err.error.errors as string[];

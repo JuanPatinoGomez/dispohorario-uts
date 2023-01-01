@@ -35,7 +35,7 @@ export class FormUsuariosComponent implements OnInit {
 
     this.usuarioService.create(this.usuarioForm).subscribe({
       next: (usuario: Usuario)=>{
-        this.router.navigate(['/usuarios']);
+        this.router.navigate(['/admin/usuarios']);
       },
       error: (err)=>{
         this.errores = err.error.errors as string[];

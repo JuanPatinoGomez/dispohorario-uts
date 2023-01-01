@@ -49,7 +49,7 @@ export class FromComponent implements OnInit {
     this.salon.edificio =this.edificio;
     this.salonService.create(this.salon).subscribe({
       next: (salon: Salon)=>{
-        this.router.navigate([`/salones/edificio/${salon.edificio.id}`]);
+        this.router.navigate([`/admin/salones/edificio/${salon.edificio.id}`]);
       },
       error: (err)=>{
         this.errores = err.error.errors as string[];
@@ -62,7 +62,7 @@ export class FromComponent implements OnInit {
   update(): void{
     this.salonService.update(this.salon).subscribe({
       next:(salon)=>{
-        this.router.navigate([`/salones/edificio/${salon.edificio.id}`]);
+        this.router.navigate([`/admin/salones/edificio/${salon.edificio.id}`]);
       },
       error:(err)=>{
         this.errores= err.error.errors as string[];

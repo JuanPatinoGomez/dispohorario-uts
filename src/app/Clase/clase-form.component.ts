@@ -55,7 +55,7 @@ export class ClaseFormComponent implements OnInit {
     this.clase.salon =this.salon;
     this.claseService.create(this.clase).subscribe({
       next: (clase: Clase)=>{
-        this.router.navigate([`/clases/salon/${clase.salon.id}`]);
+        this.router.navigate([`/admin/clases/salon/${clase.salon.id}`]);
       },
       error: (err)=>{
         this.errores = err.error.errors as string[];
@@ -69,7 +69,7 @@ export class ClaseFormComponent implements OnInit {
   update(): void{
     this.claseService.update(this.clase).subscribe({
       next:(clase)=>{
-        this.router.navigate([`/clases/salon/${clase.salon.id}`]);
+        this.router.navigate([`/admin/clases/salon/${clase.salon.id}`]);
       },
       error:(err)=>{
         this.errores= err.error.errors as string[];

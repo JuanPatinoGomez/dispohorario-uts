@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
       console.log(response)
       console.log(response['validacion'])
       if(response['validacion']){
-        this.router.navigate(['/sedes']);
+        this.router.navigate(['/admin/sedes']);
       }else{
           mensajeCredencialesIncorrectas();
       }

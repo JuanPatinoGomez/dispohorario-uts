@@ -37,7 +37,7 @@ export class FormComponent implements OnInit {
   create(): void{
     this.sedeService.create(this.sede).subscribe({
       next: (sede: Sede)=>{
-        this.router.navigate(['/sedes']);
+        this.router.navigate(['/admin/sedes']);
       },
       error: (err)=>{
         this.errores = err.error.errors as string[];
@@ -50,7 +50,7 @@ export class FormComponent implements OnInit {
   update(): void{
     this.sedeService.update(this.sede).subscribe({
       next:(sede)=>{
-        this.router.navigate(['/sedes']);
+        this.router.navigate(['/admin/sedes']);
       },
       error:(err)=>{
         this.errores= err.error.errors as string[];
