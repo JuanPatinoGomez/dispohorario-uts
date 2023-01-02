@@ -18,7 +18,8 @@ export class EdificioComponent implements OnInit {
 
   constructor(private edificioService: EdificioService,
     private router: Router,
-    private activatedRouter: ActivatedRoute) { }
+    private activatedRouter: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
     this.getEdificiosSedes();

@@ -7,6 +7,10 @@
     background-attachment: fixed;
 }
 
+.esconder{
+  display: none;
+}
+
 @media (max-width: 600px) {
     .fondo{
       background-size: auto;

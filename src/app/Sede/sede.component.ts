@@ -12,7 +12,10 @@ export class SedeComponent implements OnInit {
   title = 'Sede';
   sedes: Sede[]=[];
 
-  constructor(private sedeService: SedeService) { }
+
+  constructor(private sedeService: SedeService) { 
+
+  }
 
   ngOnInit(): void {
     this.getSedes();
@@ -31,5 +34,6 @@ export class SedeComponent implements OnInit {
       }
     });
   }
+
 
 }
