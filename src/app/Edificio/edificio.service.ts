@@ -19,7 +19,7 @@ export class EdificioService {
   }
 
   getEdificiosSedes(id:number): Observable<Edificio[]>{
-    return this.http.get<Edificio[]>(`${this.urlApi}/edificios/sede/${id}`).pipe(
+    return this.http.get<Edificio[]>(`${this.urlApi}/edificios/sede/${id}/orderByNombre`).pipe(
       catchError(e=>{
         if(e.status!=401 && e.erro.mensaje){
           this.router.navigate(['/sedes']);

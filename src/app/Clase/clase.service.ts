@@ -19,7 +19,7 @@ export class ClaseService {
     }
 
     getClasesSalon(id:number): Observable<Clase[]>{
-      return this.http.get<Clase[]>(`${this.urlApi}/clases/salon/${id}`).pipe(
+      return this.http.get<Clase[]>(`${this.urlApi}/clases/salon/${id}/orderByHoraInicio`).pipe(
         catchError(e=>{
           if(e.status!=401 && e.erro.mensaje){
             this.router.navigate(['/sedes']);

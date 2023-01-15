@@ -14,6 +14,7 @@ export class ClaseComponent implements OnInit {
 
   title = 'Clase';
   clases: Clase[]=[];
+  clasesOrdenadasPorDia :Clase[]=[];
   salonId: number=0;
 
   constructor(private claseService: ClaseService,
@@ -42,7 +43,12 @@ export class ClaseComponent implements OnInit {
       let id = params.get('id');
       if(id){
         this.claseService.getClasesSalon(Number(id)).subscribe(clases=>{
-          this.clases=clases
+          this.clasesOrdenadasPorDia.push(...clases.filter(cd => cd.dia === "Lunes"));
+          this.clasesOrdenadasPorDia.push(...clases.filter(cd => cd.dia === "Martes"));
+          this.clasesOrdenadasPorDia.push(...clases.filter(cd => cd.dia === "Miercoles"));
+          this.clasesOrdenadasPorDia.push(...clases.filter(cd => cd.dia === "Jueves"));
+          this.clasesOrdenadasPorDia.push(...clases.filter(cd => cd.dia === "Viernes"));
+          this.clases= this.clasesOrdenadasPorDia;
           this.salonId = Number(id);
         })
       }
@@ -57,4 +63,8 @@ delete(clase: Clase): void{
   });
 }
 
+
 }
+
+
+

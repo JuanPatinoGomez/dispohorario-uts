@@ -19,7 +19,7 @@ export class SalonService {
   }
 
   getSalonesEdificio(id:number): Observable<Salon[]>{
-    return this.http.get<Salon[]>(`${this.urlApi}/salones/edificio/${id}`).pipe(
+    return this.http.get<Salon[]>(`${this.urlApi}/salones/edificio/${id}/orderByNumero`).pipe(
       catchError(e=>{
         if(e.status!=401 && e.erro.mensaje){
           this.router.navigate(['/sedes']);
