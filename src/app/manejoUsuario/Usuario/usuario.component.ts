@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+import { Router, ActivatedRoute } from "@angular/router";
 import { UsuarioService } from "./usuario.service";
 import { Usuario } from "./usuario";
 
@@ -12,7 +13,19 @@ export class UsuarioComponent implements OnInit {
   title = 'Usuarios';
   usuarios: Usuario[]=[];
 
-  constructor(private usuarioService: UsuarioService) { }
+  constructor(private usuarioService: UsuarioService,
+    private router: Router,
+    private activatedRouter: ActivatedRoute) { 
+    this.userLogin();
+  }
+
+  userLogin() {
+    console.log(sessionStorage.getItem('user') === null)
+    if (sessionStorage.getItem('user') === null) {
+      console.log(sessionStorage.getItem('user') === null)
+      this.router.navigate(['/login']);
+    }
+  }
 
   ngOnInit(): void {
     this.getUsuarios();

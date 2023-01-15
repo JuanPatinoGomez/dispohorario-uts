@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from "@angular/router";
 import { SedeService } from "../Sede/sede.service";
 import { Sede } from "../Sede/sede";
 import { EdificioService } from "../Edificio/edificio.service";
@@ -22,7 +23,19 @@ export class ModuloqrComponent implements OnInit {
   constructor(private sedeService: SedeService,
     private edificioService: EdificioService,
     private salonService: SalonService,
-    private modqrService: ModqrService) { }
+    private router: Router,
+    private activatedRouter: ActivatedRoute,
+    private modqrService: ModqrService) {
+      this.userLogin();
+     }
+
+  userLogin() {
+    console.log(sessionStorage.getItem('user') === null)
+    if (sessionStorage.getItem('user') === null) {
+      console.log(sessionStorage.getItem('user') === null)
+      this.router.navigate(['/login']);
+    }
+  }
 
   ngOnInit(): void {
     this.getSedes();

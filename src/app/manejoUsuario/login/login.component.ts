@@ -19,7 +19,9 @@ export class LoginComponent implements OnInit {
 
   constructor(private usuarioService: UsuarioService,
     private router: Router,
-    private activatedRouter: ActivatedRoute) { }
+    private activatedRouter: ActivatedRoute) {
+      sessionStorage.clear();
+     }
 
   ngOnInit(): void {
   }
@@ -47,6 +49,7 @@ export class LoginComponent implements OnInit {
       console.log(response)
       console.log(response['validacion'])
       if(response['validacion']){
+        sessionStorage.setItem('user', this.usuarioForm.usuario);
         this.router.navigate(['/admin/sedes']);
       }else{
           mensajeCredencialesIncorrectas();

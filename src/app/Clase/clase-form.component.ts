@@ -14,65 +14,74 @@ export class ClaseFormComponent implements OnInit {
   selectHoras;
   titulo: string = "Crear clase";
 
-  clase: Clase={};
-  errores: string[]=[];
+  clase: Clase = {};
+  errores: string[] = [];
 
-  salonId: number=0;
-  salon: Salon={};
+  salonId: number = 0;
+  salon: Salon = {};
 
-  semana: string[]=['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'];
-  horas: string[]=['06:00', '07:30', '09:00', '10:30', '12:00', '13:30', '15:00', '16:30', '18:00', '19:30', '21:00', '22:30'];
-  horasDisponibles : string[]=[];
+  semana: string[] = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'];
+  horas: string[] = ['06:00', '07:30', '09:00', '10:30', '12:00', '13:30', '15:00', '16:30', '18:00', '19:30', '21:00', '22:30'];
+  horasDisponibles: string[] = [];
   constructor(private claseService: ClaseService,
     private router: Router,
     private activatedRouter: ActivatedRoute) {
+      this.userLogin();
+  }
+
+  userLogin() {
+    console.log(sessionStorage.getItem('user') === null)
+    if (sessionStorage.getItem('user') === null) {
+      console.log(sessionStorage.getItem('user') === null)
+      this.router.navigate(['/login']);
     }
+  }
 
   ngOnInit(): void {
     this.getCargarClase();
     this.selectHoras = document.getElementById("selectHoras");
   }
 
-  getCargarClase(): void{
-    this.activatedRouter.paramMap.subscribe(params=>{
+  getCargarClase(): void {
+    this.activatedRouter.paramMap.subscribe(params => {
       let id = params.get('id');
-      if(id){
-        this.claseService.getClase(Number(id)).subscribe(clase=>{
-          this.clase=clase
+      if (id) {
+        this.claseService.getClase(Number(id)).subscribe(clase => {
+          this.clase = clase
         })
       }
       //Aqui almacenamos el id del salon
       let idsalon = params.get('idsalon');
-      if(idsalon){
+      if (idsalon) {
         this.salonId = Number(idsalon);
         this.salon.id = this.salonId;
       }
     });
   }
 
-  create(): void{
+  create(): void {
     //Antes de crear la clase le asignamos el salon
-    this.clase.salon =this.salon;
+    this.clase.salon = this.salon;
     this.claseService.create(this.clase).subscribe({
-      next: (clase: Clase)=>{
+      next: (clase: Clase) => {
         this.router.navigate([`/admin/clases/salon/${clase.salon.id}`]);
       },
-      error: (err)=>{
+      error: (err) => {
         this.errores = err.error.errors as string[];
         console.error('Código de error desde el backend: ' + err.status)
         console.error(err.error.errors)
       }
     });
-    
+
   }
 
-  update(): void{
+  update(): void {
     this.claseService.update(this.clase).subscribe({
-      next:(clase)=>{
+      next: (clase) => {
         this.router.navigate([`/admin/clases/salon/${clase.salon.id}`]);
       },
-      error:(err)=>{
-        this.errores= err.error.errors as string[];
+      error: (err) => {
+        this.errores = err.error.errors as string[];
         console.error('Codigo del error desde el backend: ' + err.status);
         console.error(err.error.errors);
       }
@@ -85,7 +94,7 @@ export class ClaseFormComponent implements OnInit {
     }
     return o1 === null || o2 === null || o1 === undefined || o2 === undefined ? false : o1 == o2;
   }
-  
+
   compararHoras(h1: String, h2: String): boolean {
     if (h1 === undefined && h2 === undefined) {
       return true;
@@ -94,20 +103,20 @@ export class ClaseFormComponent implements OnInit {
   }
 
   onChange(targetdias) {
-    this.horas=['06:00', '07:30', '09:00', '10:30', '12:00', '13:30', '15:00', '16:30', '18:00', '19:30', '21:00', '22:30'];
+    this.horas = ['06:00', '07:30', '09:00', '10:30', '12:00', '13:30', '15:00', '16:30', '18:00', '19:30', '21:00', '22:30'];
     console.log(targetdias);
     console.log(targetdias.value);
     this.selectHoras.selectedIndex = 0;
-    if(targetdias.value === "0: undefined"){
+    if (targetdias.value === "0: undefined") {
       //this.horas[0]='000000';
-      document.getElementById("selectHoras").setAttribute("disabled","");
-    }else{
+      document.getElementById("selectHoras").setAttribute("disabled", "");
+    } else {
       //this.horas[0]='sadfdas';
       document.getElementById("selectHoras").removeAttribute("disabled");
-      this.claseService.getHorasDispo(this.salonId,targetdias.value.substr(3)).subscribe(horaa => this.horas=horaa);
+      this.claseService.getHorasDispo(this.salonId, targetdias.value.substr(3)).subscribe(horaa => this.horas = horaa);
       console.log(this.horas);
     }
   }
 
-  
+
 }

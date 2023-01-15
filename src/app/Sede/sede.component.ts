@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from "@angular/router";
 import { SedeService } from "./sede.service";
 import { Sede } from "./sede";
 
@@ -13,8 +14,18 @@ export class SedeComponent implements OnInit {
   sedes: Sede[]=[];
 
 
-  constructor(private sedeService: SedeService) { 
+  constructor(private sedeService: SedeService,
+    private router: Router,
+    private activatedRouter: ActivatedRoute) { 
+      this.userLogin();
+  }
 
+  userLogin() {
+    console.log(sessionStorage.getItem('user') === null)
+    if(sessionStorage.getItem('user') === null){
+      console.log(sessionStorage.getItem('user') === null)
+      this.router.navigate(['/login']);
+    }
   }
 
   ngOnInit(): void {

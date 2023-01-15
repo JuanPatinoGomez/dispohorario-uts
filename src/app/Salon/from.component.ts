@@ -21,7 +21,18 @@ export class FromComponent implements OnInit {
 
   constructor(private salonService: SalonService, 
     private router: Router,
-    private activatedRouter: ActivatedRoute) { }
+    private activatedRouter: ActivatedRoute) { 
+    this.userLogin();
+    }
+
+
+  userLogin() {
+    console.log(sessionStorage.getItem('user') === null)
+    if (sessionStorage.getItem('user') === null) {
+      console.log(sessionStorage.getItem('user') === null)
+      this.router.navigate(['/login']);
+    }
+  }
 
   ngOnInit(): void {
     this.getCargarSalon();

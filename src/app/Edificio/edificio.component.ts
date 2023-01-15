@@ -19,6 +19,15 @@ export class EdificioComponent implements OnInit {
   constructor(private edificioService: EdificioService,
     private router: Router,
     private activatedRouter: ActivatedRoute) {
+      this.userLogin();
+  }
+
+  userLogin() {
+    console.log(sessionStorage.getItem('user') === null)
+    if(sessionStorage.getItem('user') === null){
+      console.log(sessionStorage.getItem('user') === null)
+      this.router.navigate(['/login']);
+    }
   }
 
   ngOnInit(): void {

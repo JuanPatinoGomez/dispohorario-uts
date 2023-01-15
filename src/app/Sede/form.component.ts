@@ -17,10 +17,20 @@ export class FormComponent implements OnInit {
 
   constructor(private sedeService: SedeService,
               private router: Router,
-              private activatedRouter: ActivatedRoute) { }
+              private activatedRouter: ActivatedRoute) {
+                this.userLogin();
+               }
 
   ngOnInit(): void {
     this.getCargarSede();
+  }
+
+  userLogin() {
+    console.log(sessionStorage.getItem('user') === null)
+    if(sessionStorage.getItem('user') === null){
+      console.log(sessionStorage.getItem('user') === null)
+      this.router.navigate(['/login']);
+    }
   }
 
   getCargarSede(): void{
