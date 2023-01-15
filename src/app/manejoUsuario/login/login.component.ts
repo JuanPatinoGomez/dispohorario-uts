@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { Usuario } from "../Usuario/usuario";
 import { UsuarioForm } from "../Usuario/usuarioForm";
 import { UsuarioService } from "../Usuario/usuario.service";
+import { BarraNavService } from 'src/app/Serviciosglobales/barra-nav.service';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private activatedRouter: ActivatedRoute) {
       sessionStorage.clear();
+      BarraNavService.barraNavButtonsHidden();
      }
 
   ngOnInit(): void {

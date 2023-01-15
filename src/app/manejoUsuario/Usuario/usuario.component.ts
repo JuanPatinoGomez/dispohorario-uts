@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { Router, ActivatedRoute } from "@angular/router";
 import { UsuarioService } from "./usuario.service";
 import { Usuario } from "./usuario";
+import { BarraNavService } from 'src/app/Serviciosglobales/barra-nav.service';
 
 @Component({
   selector: 'app-usuario',
@@ -17,6 +18,7 @@ export class UsuarioComponent implements OnInit {
     private router: Router,
     private activatedRouter: ActivatedRoute) { 
     this.userLogin();
+    BarraNavService.barraNavButtonsVisible();
   }
 
   userLogin() {

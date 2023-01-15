@@ -3,6 +3,7 @@ import { ClaseService } from "./clase.service";
 import { Clase } from "./clase";
 
 import { Router, ActivatedRoute } from "@angular/router";
+import { BarraNavService } from '../Serviciosglobales/barra-nav.service';
 
 @Component({
   selector: 'app-clase',
@@ -19,6 +20,7 @@ export class ClaseComponent implements OnInit {
     private router: Router,
     private activatedRouter: ActivatedRoute) {
       this.userLogin();
+      BarraNavService.barraNavButtonsVisible();
      }
 
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
 import { SedeService } from "./sede.service";
 import { Sede } from "./sede";
+import { BarraNavService } from '../Serviciosglobales/barra-nav.service';
 
 @Component({
   selector: 'app-sede',
@@ -18,6 +19,7 @@ export class SedeComponent implements OnInit {
     private router: Router,
     private activatedRouter: ActivatedRoute) { 
       this.userLogin();
+      BarraNavService.barraNavButtonsVisible();
   }
 
   userLogin() {

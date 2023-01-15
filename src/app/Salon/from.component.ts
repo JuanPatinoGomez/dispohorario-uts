@@ -3,6 +3,7 @@ import { Salon } from "./salon";
 import { SalonService } from "./salon.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Edificio } from "../Edificio/edificio";
+import { BarraNavService } from '../Serviciosglobales/barra-nav.service';
 
 @Component({
   selector: 'app-from',
@@ -23,6 +24,7 @@ export class FromComponent implements OnInit {
     private router: Router,
     private activatedRouter: ActivatedRoute) { 
     this.userLogin();
+    BarraNavService.barraNavButtonsVisible();
     }
 
 

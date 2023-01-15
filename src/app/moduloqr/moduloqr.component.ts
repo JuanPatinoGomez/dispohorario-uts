@@ -7,6 +7,7 @@ import { Edificio } from "../Edificio/edificio";
 import { SalonService } from "../Salon/salon.service";
 import { Salon } from "../Salon/salon";
 import { ModqrService } from './modqr.service';
+import { BarraNavService } from '../Serviciosglobales/barra-nav.service';
 
 @Component({
   selector: 'app-moduloqr',
@@ -27,6 +28,7 @@ export class ModuloqrComponent implements OnInit {
     private activatedRouter: ActivatedRoute,
     private modqrService: ModqrService) {
       this.userLogin();
+      BarraNavService.barraNavButtonsVisible();
      }
 
   userLogin() {

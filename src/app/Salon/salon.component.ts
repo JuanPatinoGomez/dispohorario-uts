@@ -3,6 +3,7 @@ import { Salon } from "./salon";
 import { SalonService } from "./salon.service";
 
 import { Router, ActivatedRoute } from "@angular/router";
+import { BarraNavService } from '../Serviciosglobales/barra-nav.service';
 
 @Component({
   selector: 'app-salon',
@@ -19,6 +20,7 @@ export class SalonComponent implements OnInit {
     private router: Router,
     private activatedRouter: ActivatedRoute) { 
       this.userLogin();
+      BarraNavService.barraNavButtonsVisible();
     }
 
   userLogin() {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SedeService } from "./sede.service";
 import { Sede } from "./sede";
 import { Router, ActivatedRoute } from "@angular/router";
+import { BarraNavService } from '../Serviciosglobales/barra-nav.service';
 
 @Component({
   selector: 'app-form',
@@ -19,6 +20,7 @@ export class FormComponent implements OnInit {
               private router: Router,
               private activatedRouter: ActivatedRoute) {
                 this.userLogin();
+                BarraNavService.barraNavButtonsVisible();
                }
 
   ngOnInit(): void {

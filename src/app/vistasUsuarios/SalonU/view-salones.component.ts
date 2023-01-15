@@ -3,6 +3,7 @@ import { Salon } from "../../Salon/salon";
 import { SalonService } from "../../Salon/salon.service";
 
 import { Router, ActivatedRoute } from "@angular/router";
+import { BarraNavService } from 'src/app/Serviciosglobales/barra-nav.service';
 
 
 @Component({
@@ -18,7 +19,9 @@ export class ViewSalonesComponent implements OnInit {
 
   constructor(private salonService: SalonService,
     private router: Router,
-    private activatedRouter: ActivatedRoute) { }
+    private activatedRouter: ActivatedRoute) {
+      BarraNavService.barraNavButtonsHidden();
+     }
 
   ngOnInit(): void {
     this.getSalonesEdificio();

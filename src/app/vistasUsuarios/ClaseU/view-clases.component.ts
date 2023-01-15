@@ -3,6 +3,7 @@ import { ClaseService } from "../../Clase/clase.service";
 import { Clase } from "../../Clase/clase";
 
 import { Router, ActivatedRoute } from "@angular/router";
+import { BarraNavService } from 'src/app/Serviciosglobales/barra-nav.service';
 
 @Component({
   selector: 'app-view-clases',
@@ -25,7 +26,9 @@ export class ViewClasesComponent implements OnInit {
 
   constructor(private claseService: ClaseService,
     private router: Router,
-    private activatedRouter: ActivatedRoute) { }
+    private activatedRouter: ActivatedRoute) {
+      BarraNavService.barraNavButtonsHidden();
+     }
 
   ngOnInit(): void {
     this.getClasesSalon();

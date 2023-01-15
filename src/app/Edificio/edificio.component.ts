@@ -3,6 +3,7 @@ import { EdificioService } from "./edificio.service";
 import { Edificio } from "./edificio";
 
 import { Router, ActivatedRoute } from "@angular/router";
+import { BarraNavService } from '../Serviciosglobales/barra-nav.service';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class EdificioComponent implements OnInit {
     private router: Router,
     private activatedRouter: ActivatedRoute) {
       this.userLogin();
+      BarraNavService.barraNavButtonsVisible();
   }
 
   userLogin() {

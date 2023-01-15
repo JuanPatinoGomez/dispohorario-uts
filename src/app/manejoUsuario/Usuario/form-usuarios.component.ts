@@ -3,6 +3,7 @@ import { UsuarioService } from "./usuario.service";
 import { Usuario } from "./usuario";
 import { Router, ActivatedRoute } from "@angular/router";
 import { UsuarioForm } from "./usuarioForm";
+import { BarraNavService } from 'src/app/Serviciosglobales/barra-nav.service';
 
 @Component({
   selector: 'app-form-usuarios',
@@ -21,6 +22,7 @@ export class FormUsuariosComponent implements OnInit {
               private router: Router,
               private activatedRouter: ActivatedRoute) { 
                 this.userLogin();
+                BarraNavService.barraNavButtonsVisible();
               }
 
   userLogin() {

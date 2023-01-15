@@ -3,6 +3,7 @@ import { EdificioService } from "../../Edificio/edificio.service";
 import { Edificio } from "../../Edificio/edificio";
 
 import { Router, ActivatedRoute } from "@angular/router";
+import { BarraNavService } from 'src/app/Serviciosglobales/barra-nav.service';
 
 
 @Component({
@@ -18,7 +19,9 @@ export class ViewEdificiosComponent implements OnInit {
 
   constructor(private edificioService: EdificioService,
     private router: Router,
-    private activatedRouter: ActivatedRoute) { }
+    private activatedRouter: ActivatedRoute) { 
+      BarraNavService.barraNavButtonsHidden();
+    }
 
   ngOnInit(): void {
     this.getEdificiosSedes();

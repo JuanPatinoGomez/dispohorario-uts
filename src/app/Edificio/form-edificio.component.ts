@@ -3,6 +3,7 @@ import { EdificioService } from "./edificio.service";
 import { Edificio } from "./edificio";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Sede } from "../Sede/sede";
+import { BarraNavService } from '../Serviciosglobales/barra-nav.service';
 
 @Component({
   selector: 'app-form-edificio',
@@ -23,6 +24,7 @@ export class FormEdificioComponent implements OnInit {
     private router: Router,
     private activatedRouter: ActivatedRoute) {
       this.userLogin();
+      BarraNavService.barraNavButtonsVisible();
      }
   
   userLogin() {
