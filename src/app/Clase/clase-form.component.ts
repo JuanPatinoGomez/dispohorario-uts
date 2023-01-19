@@ -16,13 +16,14 @@ export class ClaseFormComponent implements OnInit {
   titulo: string = "Crear clase";
 
   clase: Clase = {};
+  idDClase : number;
   errores: string[] = [];
 
   salonId: number = 0;
   salon: Salon = {};
 
   semana: string[] = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'];
-  horas: string[] = ['06:00', '07:30', '09:00', '10:30', '12:00', '13:30', '15:00', '16:30', '18:00', '19:30', '21:00', '22:30'];
+  horas: string[] = ['06:00:00', '07:30:00', '09:00:00', '10:30:00', '12:00:00', '13:30:00', '15:00:00', '16:30:00', '18:00:00', '19:30:00', '21:00:00', '22:30:00'];
   horasDisponibles: string[] = [];
   constructor(private claseService: ClaseService,
     private router: Router,
@@ -50,7 +51,12 @@ export class ClaseFormComponent implements OnInit {
       if (id) {
         this.claseService.getClase(Number(id)).subscribe(clase => {
           this.clase = clase
+          this.idDClase = this.clase.id;
+          console.log(this.clase)
         })
+      }else{
+        this.idDClase = 0;
+        document.getElementById("selectHoras").setAttribute("disabled", "");
       }
       //Aqui almacenamos el id del salon
       let idsalon = params.get('idsalon');
@@ -105,7 +111,7 @@ export class ClaseFormComponent implements OnInit {
   }
 
   onChange(targetdias) {
-    this.horas = ['06:00', '07:30', '09:00', '10:30', '12:00', '13:30', '15:00', '16:30', '18:00', '19:30', '21:00', '22:30'];
+    this.horas = ['06:00:00', '07:30:00', '09:00:00', '10:30:00', '12:00:00', '13:30:00', '15:00:00', '16:30:00', '18:00:00', '19:30:00', '21:00:00', '22:30:00'];
     console.log(targetdias);
     console.log(targetdias.value);
     this.selectHoras.selectedIndex = 0;
@@ -115,10 +121,10 @@ export class ClaseFormComponent implements OnInit {
     } else {
       //this.horas[0]='sadfdas';
       document.getElementById("selectHoras").removeAttribute("disabled");
-      this.claseService.getHorasDispo(this.salonId, targetdias.value.substr(3)).subscribe(horaa => this.horas = horaa);
+      this.claseService.getHorasDispo(this.salonId, this.idDClase, targetdias.value.substr(3)).subscribe(horaa => this.horas = horaa);
       console.log(this.horas);
     }
   }
 
-
+//
 }
