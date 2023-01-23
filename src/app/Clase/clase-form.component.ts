@@ -53,6 +53,7 @@ export class ClaseFormComponent implements OnInit {
           this.clase = clase
           this.idDClase = this.clase.id;
           console.log(this.clase)
+          this.actuRevisarHoras();
         })
       }else{
         this.idDClase = 0;
@@ -115,6 +116,7 @@ export class ClaseFormComponent implements OnInit {
     console.log(targetdias);
     console.log(targetdias.value);
     this.selectHoras.selectedIndex = 0;
+    this.clase.horaInicio = undefined;
     if (targetdias.value === "0: undefined") {
       //this.horas[0]='000000';
       document.getElementById("selectHoras").setAttribute("disabled", "");
@@ -123,7 +125,14 @@ export class ClaseFormComponent implements OnInit {
       document.getElementById("selectHoras").removeAttribute("disabled");
       this.claseService.getHorasDispo(this.salonId, this.idDClase, targetdias.value.substr(3)).subscribe(horaa => this.horas = horaa);
       console.log(this.horas);
+      
     }
+  }
+
+  actuRevisarHoras(){
+    this.horas = ['06:00:00', '07:30:00', '09:00:00', '10:30:00', '12:00:00', '13:30:00', '15:00:00', '16:30:00', '18:00:00', '19:30:00', '21:00:00', '22:30:00'];
+    this.claseService.getHorasDispo(this.salonId, this.idDClase, this.clase.dia).subscribe(horaa => this.horas = horaa);
+
   }
 
 //
