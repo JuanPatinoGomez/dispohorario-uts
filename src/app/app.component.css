@@ -16,4 +16,8 @@
       background-size: auto;
 
     }
+
+    #barra_n{
+      display: none !important;
+    }
 }
