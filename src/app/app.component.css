@@ -1,7 +1,7 @@
 .fondo{
     min-height: 98vh;
     background-image: url("https://images.pexels.com/photos/1632788/pexels-photo-1632788.jpeg?auto=compress&cs=tinysrgb&w=1400");
-    background-image: url("../../../imgs/imgfondo.png");
+    background-image: url("../assets/imgfondo.png");
     background-repeat: no-repeat;
     background-size: 100%;
     background-attachment: fixed;

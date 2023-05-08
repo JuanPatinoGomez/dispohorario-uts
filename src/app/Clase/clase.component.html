@@ -1,7 +1,15 @@
 <br><br><br>
 <div class="card border-primary mb3">
-    <button type="button" routerLink='/admin/sedes' class="btn btn-success">volver</button> 
-    <div class="card-header">Administración clases</div>
+   <button class="btn btn-success " type="button"  [routerLink]="['/admin/salones/edificio/', edificioId]">Volver</button>
+    <button class="btn btn-primary " type="button"  routerLink='/admin/sedes'>Inicio</button>
+    <div class="card-header">
+      <ul class="list-group list-group-horizontal" style="margin-left: -10px;">
+         <li class="list-group-item">Administración clases</li>
+         <li class="list-group-item">{{municipioSede}}</li>
+         <li class="list-group-item">{{edificioSalon}}</li>
+         <li class="list-group-item">{{salonEdificio}}</li>
+       </ul>
+    </div>
     <div class="card-body text-primary">
        <div class="my-2 text-left">
          <button type="button" [routerLink]="['/admin/clases/salon', salonId, 'form']" class="btn btn-success">Nueva clase</button>       

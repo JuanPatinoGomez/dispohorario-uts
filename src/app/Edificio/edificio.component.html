@@ -1,8 +1,13 @@
 <br><br><br>
 <div class="card border-primary mb3" style="border-width: 0px;">
-    <button type="button" routerLink='/admin/sedes' class="btn btn-success">volver</button> 
+   <button class="btn btn-primary " type="button"  routerLink='/admin/sedes'>Inicio</button>
 
-    <div class="card-header">Administración edificios</div>
+    <div class="card-header">
+      <ul class="list-group list-group-horizontal" style="margin-left: -10px;">
+         <li class="list-group-item">Administración edificios</li>
+         <li class="list-group-item">{{municipioSede}}</li>
+       </ul>
+    </div>
     <div class="card-body text-primary">
        <div class="my-2 text-left">
          <button type="button" [routerLink]="['/admin/edificios/sede', sedeId, 'form']" class="btn btn-success">Nuevo edificio</button>       

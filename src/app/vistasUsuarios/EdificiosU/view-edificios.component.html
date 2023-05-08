@@ -17,9 +17,13 @@
 
 <br><br><br>
 <div class="d-grid gap-2">
-   <button class="btn btn-primary" type="button"  routerLink='/view/sedes'>Volver</button>
+   <button class="btn btn-primary" type="button"  routerLink='/view/sedes'>Inicio</button>
  </div>
  <br>
+ <ul class="list-group list-group-horizontal">
+   
+   <li class="list-group-item bg-dark text-white">{{municipioSede}}</li>
+ </ul>
 <div class="card-header bg-dark text-center h1 text-white">Edificios</div>
 <div class="card mb3 bg-light bg-opacity-10">
    <br><br>
@@ -30,7 +34,7 @@
          <img src="https://elfrente.com.co/repositorio_imagenes/EL_FRENTE_02022002016017013014_FOTO_3_NOTA_3.jpg" class="card-img-top" alt="...">
          <div class="card-body bg-success bg-opacity-10">
            <h5 class="card-title">Edificio {{edificio.nombre}}</h5>
-           <p class="card-text">lorem.</p>
+           <!-- <p class="card-text">lorem.</p> -->
          </div>
       </div>
 

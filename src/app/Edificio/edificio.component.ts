@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EdificioService } from "./edificio.service";
 import { Edificio } from "./edificio";
+import { SedeService } from "../Sede/sede.service";
 
 import { Router, ActivatedRoute } from "@angular/router";
 import { BarraNavService } from '../Serviciosglobales/barra-nav.service';
@@ -16,8 +17,10 @@ export class EdificioComponent implements OnInit {
   title = 'Edificio';
   edificios: Edificio[]=[];
   sedeId: number=0;
+  municipioSede: string= '';
 
   constructor(private edificioService: EdificioService,
+    private sedeService: SedeService,
     private router: Router,
     private activatedRouter: ActivatedRoute) {
       this.userLogin();
@@ -43,8 +46,15 @@ export class EdificioComponent implements OnInit {
           this.edificioService.getEdificiosSedes(Number(id)).subscribe(edificios=>{
             this.edificios=edificios
             this.sedeId = Number(id);
+            this.sedeService.getSede(this.sedeId).subscribe(sede => {
+              console.log(sede);
+              this.municipioSede = sede.municipio
+            });
           })
+          
         }
+        
+
       })
   }
 

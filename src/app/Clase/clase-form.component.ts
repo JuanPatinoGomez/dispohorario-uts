@@ -22,7 +22,7 @@ export class ClaseFormComponent implements OnInit {
   salonId: number = 0;
   salon: Salon = {};
 
-  semana: string[] = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'];
+  semana: string[] = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
   horas: string[] = ['06:00:00', '07:30:00', '09:00:00', '10:30:00', '12:00:00', '13:30:00', '15:00:00', '16:30:00', '18:00:00', '19:30:00', '21:00:00', '22:30:00'];
   horasDisponibles: string[] = [];
   constructor(private claseService: ClaseService,

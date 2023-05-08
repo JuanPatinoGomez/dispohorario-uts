@@ -30,6 +30,18 @@ export class ClaseService {
       );;
     }
 
+    getClasesSalonCompleto(id:number): Observable<Clase[]>{
+      return this.http.get<Clase[]>(`${this.urlApi}/clases/salon/${id}/orderByHoraInicio/completo`).pipe(
+        catchError(e=>{
+          if(e.status!=401 && e.erro.mensaje){
+            this.router.navigate(['/sedes']);
+            console.log(e.error.mensaje);
+          }
+          return throwError(()=>e);
+        })
+      );;
+    }
+
     getClasesSalonSort(id:number): Observable<Clase[]>{
       return this.http.get<Clase[]>(`${this.urlApi}/clases/salon/${id}/sort/horainicio`).pipe(
         catchError(e=>{
