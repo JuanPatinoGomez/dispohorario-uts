@@ -39,7 +39,7 @@
                   <button class="btn btn-primary" type="button" (click)="qrEdificio(edificio)" data-bs-toggle="modal" data-bs-target="#exampleModal">Generar todos los codigos qr del edificio</button>
                 </div>
                 <br>
-                <button type="button" class="btn btn-secondary" *ngFor="let salon of salones" (click)="qrSalon(salon)" style="margin-left: 10px; margin-bottom: 10px;" data-bs-toggle="modal" data-bs-target="#exampleModal">{{salon.tipo}}-{{salon.numero}}</button> 
+                <button type="button" class="btn btn-secondary" *ngFor="let salon of salones" (click)="qrSalon(salon, edificio)" style="margin-left: 10px; margin-bottom: 10px;" data-bs-toggle="modal" data-bs-target="#exampleModal">{{salon.tipo}}-{{salon.numero}}</button> 
               </div>
             </div>
           </div>

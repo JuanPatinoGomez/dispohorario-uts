@@ -67,39 +67,28 @@ export class ModuloqrComponent implements OnInit {
   //Servicios que generan los codigos qr
 
   qrSede(sede: Sede): void{
-    this.mensaje = '';
-    this.modqrService.qrSede(sede.id).subscribe(response =>{
-      this.mensaje = response['mensaje'];
-      console.log(response)
-    });
+    this.mensaje = 'Se han generado los códigos QR';
+    this.modqrService.qrSede(sede.id);
   }
 
   qrEdificio(edificio: Edificio): void{
-    this.mensaje = '';
-    this.modqrService.qrEdificio(edificio.id).subscribe(response =>{
-      this.mensaje = response['mensaje'];
-      console.log(response)
-    });
+    this.mensaje = 'Se han generado los códigos QR';
+    this.modqrService.qrEdificio(edificio.id);
   }
 
-  qrSalon(salon: Salon): void{
-    this.mensaje = '';
-    this.modqrService.qrSalon(salon.id).subscribe(response =>{
-      this.mensaje = response['mensaje'];
-      console.log(response)
-    });
+  qrSalon(salon: Salon, edificio: Edificio): void{
+    this.mensaje = 'Se ha generado el código QR';
+    this.modqrService.qrSalon(salon.id, salon.numero, edificio);
   }
 
   qrApp(): void{
-    this.mensaje = '';
-    this.modqrService.qrApp().subscribe(response =>{
-      this.mensaje = response['mensaje'];
-      console.log(response)
-    });
+    this.mensaje = 'Se ha generado el código QR';
+    this.modqrService.qrApp();
   }
 
   detectFiles(event){
     console.log(event.currentTarget.files[0].webkitRelativePath);
   }
+
 
 }
